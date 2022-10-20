@@ -33,5 +33,6 @@ export default {
   position: absolute;
   bottom: 0;
   transform: translateY(50%);
+  z-index: 1000000000;
 }
 </style>

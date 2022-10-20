@@ -52,7 +52,8 @@ export default {
     .app-top {
       width: 100%;
       height: 35vh;
-      background-color: blueviolet;
+      background-image: url(../public/images/pattern-bg.png);
+      background-size: cover;
       position: relative;
       display: flex;
       flex-direction: column;
