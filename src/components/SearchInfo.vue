@@ -2,15 +2,27 @@
   <div class="search-info">
     <div class="ip-address">
       <h4>IP Address</h4>
+      <p>
+        {{ position.ip }}
+      </p>
     </div>
     <div class="location">
       <h4>Location</h4>
+      <p>
+        {{ position.location }}
+      </p>
     </div>
     <div class="timezone">
       <h4>Timezone</h4>
+      <p>
+        {{ position.timezone }}
+      </p>
     </div>
     <div class="isp">
       <h4>ISP</h4>
+      <p>
+        {{ position.isp }}
+      </p>
     </div>
   </div>
 </template>
@@ -18,6 +30,9 @@
 <script>
 export default {
   name: "SearchInfo",
+  props: {
+    position: Object,
+  },
 };
 </script>
 

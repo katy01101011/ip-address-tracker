@@ -1,19 +1,51 @@
 <template>
   <div class="search-bar">
-    <input type="text" placeholder="Search for any IP address or domain" />
-    <!-- at_8a1MRcKOkZqAroCzrjk2myoWTqPhw -->
-    <button>
+    <input
+      type="text"
+      v-model="ipToSearch"
+      placeholder="Search for any IP address or domain"
+    />
+    <button
+      @click="
+        getLocalization;
+        $emit('search', ipToSearch);
+      "
+    >
       <i class="fa-solid fa-chevron-right"></i>
     </button>
   </div>
 </template>
 
 <script>
+// import axios from "axios";
+
 export default {
   name: "SearchBar",
   // props: {
   //   msg: String,
   // },
+  data() {
+    return {
+      localization: null,
+      ipToSearch: "",
+    };
+  },
+  methods: {
+    getLocalization() {
+      // axios
+      //   .get("https://geo.ipify.org/api/v2/country,city?", {
+      //     params: {
+      //       apiKey: "at_8a1MRcKOkZqAroCzrjk2myoWTqPhw",
+      //       ipAddress: "8.8.8.8",
+      //     },
+      //   })
+      //   .then((response) => {
+      //     this.localization = response.data;
+      //     console.log(this.localization);
+      //   });
+      // console.log(this.ipToSearch);
+    },
+  },
 };
 </script>
 

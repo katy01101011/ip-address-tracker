@@ -5,14 +5,7 @@
         <l-tile-layer :url="url" :attribution="attribution" />
         <l-marker :lat-lng="withPopup">
           <l-popup>
-            <div>
-              I am a popup
-              <p v-show="showParagraph">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-                sed pretium nisl, ut sagittis sapien. Sed vel sollicitudin nisi.
-                Donec finibus semper metus id malesuada.
-              </p>
-            </div>
+            <p>I am a popup</p>
           </l-popup>
         </l-marker>
       </l-map>
@@ -64,14 +57,14 @@ export default {
   },
   data() {
     return {
-      zoom: 13,
-      center: latLng(47.41322, -1.219482),
-      url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+      zoom: 16.5,
+      center: latLng(43.731499, 7.414951),
+      url: "https://tile.thunderforest.com/atlas/{z}/{x}/{y}.png?apikey=1f9c134dd3d14e259abe3ed390a4730f",
       attribution:
         '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
-      withPopup: latLng(47.41322, -1.219482),
-      currentZoom: 10,
-      currentCenter: latLng(47.41322, -1.219482),
+      withPopup: latLng(43.731499, 7.414951),
+      currentZoom: 20,
+      currentCenter: latLng(43.731499, 7.414951),
       showParagraph: false,
       showMap: true,
     };

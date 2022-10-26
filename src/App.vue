@@ -3,8 +3,8 @@
     <div class="app-body">
       <div class="app-top">
         <h1>IP Address Tracker</h1>
-        <SearchBar />
-        <SearchInfo />
+        <SearchBar @search="ipToFind" />
+        <SearchInfo :position="position" />
       </div>
       <div class="app-bottom">
         <AppMap />
@@ -24,6 +24,24 @@ export default {
     SearchBar,
     SearchInfo,
     AppMap,
+  },
+  data() {
+    return {
+      ipToSearch: "",
+      position: {
+        ip: "192.212.174.101",
+        location: "Brooklyn, NY",
+        timezone: "UTC-05:00",
+        isp: "SpaceX Starlink",
+      },
+    };
+  },
+  methods: {
+    ipToFind(ip) {
+      this.ipToSearch = ip;
+      // "192.212.174.101"
+      // console.log(this.ipToSearch);
+    },
   },
 };
 </script>
