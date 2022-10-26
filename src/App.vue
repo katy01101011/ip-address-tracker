@@ -4,16 +4,17 @@
       <div class="app-top">
         <h1>IP Address Tracker</h1>
         <SearchBar @search="ipToFind" />
-        <SearchInfo :position="position" />
+        <SearchInfo :localization="localization" />
       </div>
       <div class="app-bottom">
-        <AppMap />
+        <AppMap :ipData="position" />
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import axios from "axios";
 import SearchBar from "./components/SearchBar.vue";
 import SearchInfo from "./components/SearchInfo.vue";
 import AppMap from "./components/AppMap.vue";
@@ -27,14 +28,41 @@ export default {
   },
   data() {
     return {
-      ipToSearch: "",
-      position: {
-        ip: "192.212.174.101",
-        location: "Brooklyn, NY",
-        timezone: "UTC-05:00",
-        isp: "SpaceX Starlink",
-      },
+      ipToSearch: "192.212.174.101",
+      localization: "",
     };
+  },
+  created() {
+    axios
+      .get("https://geo.ipify.org/api/v2/country,city?", {
+        params: {
+          apiKey: "at_8a1MRcKOkZqAroCzrjk2myoWTqPhw",
+          ipAddress: this.ipToSearch,
+        },
+      })
+      .then((response) => {
+        this.localization = response.data;
+        console.log(this.localization);
+      });
+    console.log(this.ipToSearch);
+  },
+  computed: {
+    changeSearch() {
+      axios
+        .get("https://geo.ipify.org/api/v2/country,city?", {
+          params: {
+            apiKey: "at_8a1MRcKOkZqAroCzrjk2myoWTqPhw",
+            ipAddress: this.ipToSearch,
+          },
+        })
+        .then((response) => {
+          this.localization = response.data;
+          console.log(this.localization);
+        });
+      console.log(this.ipToSearch);
+
+      return this.localization;
+    },
   },
   methods: {
     ipToFind(ip) {

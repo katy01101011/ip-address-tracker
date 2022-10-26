@@ -3,25 +3,23 @@
     <div class="ip-address">
       <h4>IP Address</h4>
       <p>
-        {{ position.ip }}
+        {{ localization.ip }}
       </p>
     </div>
     <div class="location">
       <h4>Location</h4>
       <p>
-        {{ position.location }}
+        {{ localization.location.city }}
       </p>
     </div>
     <div class="timezone">
       <h4>Timezone</h4>
-      <p>
-        {{ position.timezone }}
-      </p>
+      <p>UTC{{ localization.location.timezone }}</p>
     </div>
     <div class="isp">
       <h4>ISP</h4>
       <p>
-        {{ position.isp }}
+        {{ localization.isp }}
       </p>
     </div>
   </div>
@@ -31,7 +29,7 @@
 export default {
   name: "SearchInfo",
   props: {
-    position: Object,
+    localization: Object,
   },
 };
 </script>

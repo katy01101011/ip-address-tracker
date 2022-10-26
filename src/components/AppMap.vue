@@ -5,7 +5,10 @@
         <l-tile-layer :url="url" :attribution="attribution" />
         <l-marker :lat-lng="withPopup">
           <l-popup>
-            <p>I am a popup</p>
+            <p id="popupText">
+              <!-- {{ test }} -->
+              <!-- Popup -->
+            </p>
           </l-popup>
         </l-marker>
       </l-map>
@@ -27,6 +30,15 @@
 import { LMap, LTileLayer, LMarker } from "vue2-leaflet";
 
 export default {
+  name: "AppMap",
+  props: {
+    isp: String,
+  },
+  data() {
+    return {
+      test: "Hello World!",
+    };
+  },
   components: {
     LMap,
     LTileLayer,
